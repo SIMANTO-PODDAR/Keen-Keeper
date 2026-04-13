@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "David Kim",
+    "picture": "",
+    "email": "david.kim@gmail.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["work", "project partner"],
+    "bio": "Worked together on multiple freelance projects. Very reliable and detail-oriented.",
+    "goal": 10,
+    "next_due_date": "2026-04-15"
+  },
+  {
+    "id": 2,
+    "name": "Emma Wilson",
+    "picture": "",
+    "email": "emma.wilson@yahoo.com",
+    "days_since_contact": 25,
+    "status": "on-track",
+    "tags": ["family", "cousin"],
+    "bio": "My cousin who lives abroad. We usually catch up on video calls.",
+    "goal": 17,
+    "next_due_date": "2026-03-30"
+  },
+  {
+    "id": 3,
+    "name": "Lisa Nakamura",
+    "picture": "",
+    "email": "lisa.nakamura@gmail.com",
+    "days_since_contact": 30,
+    "status": "overdue",
+    "tags": ["work", "designer"],
+    "bio": "Collaborated on UI/UX projects. Great sense of aesthetics and creativity.",
+    "goal": 5,
+    "next_due_date": "2026-03-28"
+  },
+  {
+    "id": 4,
+    "name": "James Wright",
+    "picture": "",
+    "email": "james.wright@hotmail.com",
+    "days_since_contact": 20,
+    "status": "overdue",
+    "tags": ["hobby", "travel"],
+    "bio": "Met during a group trip. Loves exploring new places and photography.",
+    "goal": 11,
+    "next_due_date": "2026-04-01"
+  },
+  {
+    "id": 5,
+    "name": "David Kim",
+    "picture": "",
+    "email": "davidkim@gmail.com",
+    "days_since_contact": 5,
+    "status": "almost due",
+    "tags": ["college", "close friend"],
+    "bio": "One of my closest college friends. We talk regularly about life and career.",
+    "goal": 9,
+    "next_due_date": "2026-04-22"
+  },
+  {
+    "id": 6,
+    "name": "Emma Wilson",
+    "picture": "",
+    "email": "emmawilson@gmail.com",
+    "days_since_contact": 10,
+    "status": "on-track",
+    "tags": ["gym", "fitness buddy"],
+    "bio": "We train together at the gym and keep each other motivated.",
+    "goal": 13,
+    "next_due_date": "2026-04-18"
+  }
+]

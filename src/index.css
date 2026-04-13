@@ -4,4 +4,9 @@
 /* font */
 #geist {
     font-family: "Geist", sans-serif;
-};
+}
+
+.active {
+    background: #244d3f;
+    color: azure;
+}
