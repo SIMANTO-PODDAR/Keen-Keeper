@@ -6,7 +6,7 @@ import { ImStatsDots } from 'react-icons/im';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="flex-col sm:flex-row navbar bg-base-100 shadow-sm">
                 <div className="flex-1">
                     <img src={LogoImg} alt="logo" />
                 </div>
