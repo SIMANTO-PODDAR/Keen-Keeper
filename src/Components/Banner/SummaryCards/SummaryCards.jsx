@@ -1,13 +1,13 @@
 const SummaryCards = () => {
     return (
         <div className="
-                    grid grid-cols-1 text-center gap-6 mt-10 text-black/50 justify-between p-15
-                    sm:grid-cols-2 sm:p-20
-                    lg:grid-cols-4 lg:p-0">
+                    grid grid-cols-1 text-center gap-3 sm:gap-5 mt-5 text-black/50 justify-between py-5
+                    sm:grid-cols-2 sm:py-20 sm:mt-10
+                    lg:grid-cols-4 lg:py-0">
 
             <div className="card bg-base-100 card-md shadow-sm">
                 <div className="card-body">
-                    <h1 className="text-2xl sm:text-3xl text-[#244d3f] font-bold">10</h1>
+                    <h1 className="text-2xl sm:text-3xl text-[#244d3f] font-bold">8</h1>
                     <p className="text-[18px]">Total Friends</p>
                 </div>
             </div>

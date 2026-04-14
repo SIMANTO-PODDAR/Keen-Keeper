@@ -6,10 +6,7 @@
     "email": "david.kim@gmail.com",
     "days_since_contact": 12,
     "status": "Almost Due",
-    "tags": [
-      "work",
-      "project partner"
-    ],
+    "tags": ["work"],
     "bio": "Worked together on multiple freelance projects. Very reliable and detail-oriented.",
     "goal": 10,
     "next_due_date": "2026-04-15"
@@ -22,8 +19,7 @@
     "days_since_contact": 25,
     "status": "On-track",
     "tags": [
-      "family",
-      "cousin"
+      "family"
     ],
     "bio": "My cousin who lives abroad. We usually catch up on video calls.",
     "goal": 17,
@@ -37,8 +33,7 @@
     "days_since_contact": 30,
     "status": "Overdue",
     "tags": [
-      "work",
-      "designer"
+      "work"
     ],
     "bio": "Collaborated on UI/UX projects. Great sense of aesthetics and creativity.",
     "goal": 5,
@@ -68,7 +63,7 @@
     "status": "On-track",
     "tags": [
       "college",
-      "close friend"
+      "friend"
     ],
     "bio": "One of my closest college friends. We talk regularly about life and career.",
     "goal": 14,
@@ -81,7 +76,6 @@
     "days_since_contact": 10,
     "status": "On-track",
     "tags": [
-      "gym",
       "fitness buddy"
     ],
     "bio": "We train together at the gym and keep each other motivated.",
@@ -96,7 +90,6 @@
     "days_since_contact": 16,
     "status": "Almost Due",
     "tags": [
-      "work",
       "developer"
     ],
     "bio": "Worked together at a startup. Passionate about coding and always shares new tech ideas.",

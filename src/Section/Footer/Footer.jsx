@@ -1,6 +1,7 @@
 import { RiInstagramFill } from 'react-icons/ri';
 import FooterLogo from './../../assets/imgs/logo-xl.png'
 import { Link } from 'react-router';
+import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6';
 const Footer = () => {
     return (
         <div className="bg-[#244d3f] text-[#f0ffff] sm:mt-20">
@@ -21,11 +22,11 @@ const Footer = () => {
                             </Link>
                             <Link
                                 className="fill-current bg-amber-50 text-black text-2xl p-2 rounded-full">
-                                <RiInstagramFill />
+                                <FaSquareFacebook />
                             </Link>
                             <Link
                                 className="fill-current bg-amber-50 text-black text-2xl p-2 rounded-full">
-                                <RiInstagramFill />
+                                <FaXTwitter />
                             </Link>
                         </div>
                     </div>
