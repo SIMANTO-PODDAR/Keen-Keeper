@@ -2,6 +2,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { LuVideo } from "react-icons/lu";
 import { MdOutlineTextsms } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { GrDocumentOutlook } from "react-icons/gr";
 
 const TimeLine = () => {
     return (
@@ -23,6 +24,12 @@ const TimeLine = () => {
             {
                 <TimeLineItem />
             }
+
+            <div className={`${false ?
+                'grid' : 'hidden'
+                }`}>
+                <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Time Line Data Available!</h1>
+            </div>
 
         </div>
     );

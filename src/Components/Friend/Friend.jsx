@@ -23,7 +23,7 @@ const Friend = ({ friendsPromise }) => {
 
     return (
         <div className="mt-5 sm:mt-20 flex-1 sm:flex justify-between">
-            <div className="w-80 grid gap-3 mx-auto sm:mx-0"> {/* Left Side */}
+            <div className="w-80 grid gap-3 mx-auto sm:mx-0 sm:h-50"> {/* Left Side */}
                 <div className="card bg-base-100 shadow-sm">
                     <figure className="mx-auto py-2">
                         <img
@@ -49,27 +49,29 @@ const Friend = ({ friendsPromise }) => {
                                 > {tag.toUpperCase()} </div>)
                             }
                         </div>
-
-                        <p className="text-black/50">{expectedFriend.bio}</p>
-                        <p className="text-black/50">Preferred: {expectedFriend.email}</p>
+                        <div>
+                            <p className="text-black/50 ">{expectedFriend.bio}</p>
+                            <p className="text-black/50 ">Preferred: {expectedFriend.email}</p>
+                        </div>
                     </div>
                 </div>
 
-                <button className="btn w-full text-sm bg-base-100">
-                    <span className="text-xl"><RiNotificationSnoozeLine /></span>
-                    Snooze 2 weeks
-                </button>
+                <div className="flex flex-col gap-2">
+                    <button className="btn w-full text-sm bg-base-100">
+                        <span className="text-xl"><RiNotificationSnoozeLine /></span>
+                        Snooze 2 weeks
+                    </button>
 
-                <button className="btn w-full text-sm bg-base-100">
-                    <span className="text-xl"><FiArchive /></span>
-                    Archive
-                </button>
+                    <button className="btn w-full text-sm bg-base-100">
+                        <span className="text-xl"><FiArchive /></span>
+                        Archive
+                    </button>
 
-                <button className="btn w-full text-sm bg-base-100 text-red-600">
-                    <span className="text-xl"><RiDeleteBinLine /></span>
-                    Delete
-                </button>
-
+                    <button className="btn w-full text-sm bg-base-100 text-red-600">
+                        <span className="text-xl"><RiDeleteBinLine /></span>
+                        Delete
+                    </button>
+                </div>
             </div>
 
             <div className="max-w-3xl mr-0 sm:mr-10 mx-auto mt-5 sm:mt-0"> {/* Right Side */}
