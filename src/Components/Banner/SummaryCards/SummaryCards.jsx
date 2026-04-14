@@ -1,7 +1,9 @@
 const SummaryCards = () => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-        px-10 sm:px-0 text-center gap-6 mt-10 text-black/50 justify-between">
+        <div className="
+                    grid grid-cols-1 text-center gap-6 mt-10 text-black/50 justify-between p-15
+                    sm:grid-cols-2 sm:p-20
+                    lg:grid-cols-4 lg:p-0">
 
             <div className="card bg-base-100 card-md shadow-sm">
                 <div className="card-body">

@@ -15,7 +15,7 @@ const Banner = () => {
 
             <SummaryCards />
 
-            <div className="my-10 h-0.5 bg-black/15"></div>
+            <div className="my-10 h-0.5 bg-black/10"></div>
         </div>
     );
 };

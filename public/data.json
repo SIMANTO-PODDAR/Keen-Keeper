@@ -2,11 +2,14 @@
   {
     "id": 1,
     "name": "David Kim",
-    "picture": "",
+    "picture": "https://i.ibb.co.com/S4LSdzZh/d9f497c1c12284df2c1dcb7e42ec96b3ad9e90a3.webp",
     "email": "david.kim@gmail.com",
     "days_since_contact": 12,
     "status": "Almost Due",
-    "tags": ["work", "project partner"],
+    "tags": [
+      "work",
+      "project partner"
+    ],
     "bio": "Worked together on multiple freelance projects. Very reliable and detail-oriented.",
     "goal": 10,
     "next_due_date": "2026-04-15"
@@ -14,11 +17,14 @@
   {
     "id": 2,
     "name": "Emma Wilson",
-    "picture": "",
+    "picture": "https://i.ibb.co.com/gZNxfrG5/b676b6949092e943c3f9a2a1e4c0285960cafc90.webp",
     "email": "emma.wilson@yahoo.com",
     "days_since_contact": 25,
     "status": "On-track",
-    "tags": ["family", "cousin"],
+    "tags": [
+      "family",
+      "cousin"
+    ],
     "bio": "My cousin who lives abroad. We usually catch up on video calls.",
     "goal": 17,
     "next_due_date": "2026-03-30"
@@ -26,11 +32,14 @@
   {
     "id": 3,
     "name": "Lisa Nakamura",
-    "picture": "",
+    "picture": "https://i.ibb.co.com/8nk5B8vB/8e2d5bcb44df5cb0b3eb50296d53dd2bead6e45d.webp",
     "email": "lisa.nakamura@gmail.com",
     "days_since_contact": 30,
     "status": "Overdue",
-    "tags": ["work", "designer"],
+    "tags": [
+      "work",
+      "designer"
+    ],
     "bio": "Collaborated on UI/UX projects. Great sense of aesthetics and creativity.",
     "goal": 5,
     "next_due_date": "2026-03-28"
@@ -38,37 +47,75 @@
   {
     "id": 4,
     "name": "James Wright",
-    "picture": "",
+    "picture": "https://i.ibb.co.com/RqGDcmG/03a8d9b98d0f357116da4eda6a0e6db96ea785f2.webp",
     "email": "james.wright@hotmail.com",
     "days_since_contact": 20,
     "status": "Overdue",
-    "tags": ["hobby", "travel"],
+    "tags": [
+      "hobby",
+      "travel"
+    ],
     "bio": "Met during a group trip. Loves exploring new places and photography.",
     "goal": 11,
     "next_due_date": "2026-04-01"
   },
   {
     "id": 5,
-    "name": "David Kim",
-    "picture": "",
-    "email": "david.kim@gmail.com",
+    "name": "Sophia Turner",
+    "picture": "https://i.ibb.co.com/1tGBY7xK/2f90421fea18129180556cb5ebc3459af5abf501.webp",
+    "email": "sophia.turner@gmail.com",
     "days_since_contact": 5,
-    "status": "Almost Due",
-    "tags": ["college", "close friend"],
+    "status": "On-track",
+    "tags": [
+      "college",
+      "close friend"
+    ],
     "bio": "One of my closest college friends. We talk regularly about life and career.",
-    "goal": 9,
+    "goal": 14,
     "next_due_date": "2026-04-22"
   },
   {
     "id": 6,
-    "name": "Emma Wilson",
-    "picture": "",
-    "email": "emma.wilson@gmail.com",
+    "name": "Daniel Carter",
+    "picture": "https://i.ibb.co.com/SXZncX1x/880a82cd26c3e81dbc54022d0944818aa6d91599.webp",
     "days_since_contact": 10,
     "status": "On-track",
-    "tags": ["gym", "fitness buddy"],
+    "tags": [
+      "gym",
+      "fitness buddy"
+    ],
     "bio": "We train together at the gym and keep each other motivated.",
-    "goal": 13,
+    "goal": 19,
     "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 7,
+    "name": "Michael Brown",
+    "picture": "https://i.ibb.co.com/tTtCfB7B/83287d6f80f08f42206eeb2274eb0de5fd2ad5fd.webp",
+    "email": "michael.brown@gmail.com",
+    "days_since_contact": 16,
+    "status": "Almost Due",
+    "tags": [
+      "work",
+      "developer"
+    ],
+    "bio": "Worked together at a startup. Passionate about coding and always shares new tech ideas.",
+    "goal": 8,
+    "next_due_date": "2026-04-16"
+  },
+  {
+    "id": 8,
+    "name": "Ryan Mitchell",
+    "picture": "https://i.ibb.co.com/zDsWgZ7/9bb3646bfeecb9db038906623109a18d2417f64f.webp",
+    "email": "ryan.mitchell@gmail.com",
+    "days_since_contact": 28,
+    "status": "Overdue",
+    "tags": [
+      "school",
+      "football"
+    ],
+    "bio": "School friend and football teammate. Haven’t caught up in a while.",
+    "goal": 16,
+    "next_due_date": "2026-03-31"
   }
 ]
