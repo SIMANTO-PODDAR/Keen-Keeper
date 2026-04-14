@@ -46,7 +46,7 @@ const Friend = ({ friendsPromise }) => {
             "date": `${UpdateTimeDate()}`
         }
 
-        setTimeLineData([...TimeLineData, friendObj])
+        setTimeLineData([friendObj, ...TimeLineData])
 
     }
 

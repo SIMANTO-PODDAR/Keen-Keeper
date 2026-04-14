@@ -1,41 +1,74 @@
 import { FiPhoneCall } from "react-icons/fi";
 import { LuVideo } from "react-icons/lu";
-import { MdOutlineTextsms } from "react-icons/md";
+import { MdClearAll, MdOutlineTextsms } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GrDocumentOutlook } from "react-icons/gr";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TLContext } from "../../TimeLineContext/TimeLineContext";
 
 const TimeLine = () => {
-
     const { TimeLineData } = useContext(TLContext);
+
+    const VideoData = TimeLineData.filter(vdata => vdata.sm == "Video");
+    const CallData = TimeLineData.filter(cdata => cdata.sm == "Call");
+    const TextData = TimeLineData.filter(tdata => tdata.sm == "Text");
+
+    const [showTimeLineData, setShowTimeLineData] = useState('All')
+
+    const handleShowData = (show) => {
+        setShowTimeLineData(`${show}`)
+    }
 
     return (
         <div className="mt-5 sm:mt-20">
             <h1 className="text-3xl sm:text-5xl font-bold">Timeline</h1>
+
             <div className="dropdown mt-3 sm:mt-6">
                 <div tabIndex={0} role="button" className="btn m-1 w-50 sm:w-87 flex justify-between text-black/50">
-                    <span>Filter timeline</span>
+                    <span>Filter timeline  ({showTimeLineData})</span>
                     <span className="font-bold text-2xl"><RiArrowDropDownLine /></span>
                 </div>
 
                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-50 sm:w-87 p-2 shadow-sm">
-                    <li><a><FiPhoneCall /> Call </a></li>
-                    <li><a><MdOutlineTextsms /> Text </a></li>
-                    <li><a><LuVideo /> Video </a></li>
+                    <li onClick={() => handleShowData('Call')}>
+                        <a><FiPhoneCall /> Call </a></li>
+                    <li onClick={() => handleShowData('Text')}>
+                        <a><MdOutlineTextsms /> Text </a></li>
+                    <li onClick={() => handleShowData('Video')}>
+                        <a><LuVideo /> Video </a></li>
+                    <li onClick={() => handleShowData('All')}>
+                        <a><MdClearAll /> All </a></li>
                 </ul>
             </div>
 
             {
-                TimeLineData.map((data, ind) =>
-                    <TimeLineItem key={ind} friend={data} />)
+                showTimeLineData == 'All' && (TimeLineData.map((data, ind) =>
+                    <TimeLineItem key={ind} friend={data} />))
             }
 
-            <div className={`${TimeLineData.length == 0 ?
-                'grid' : 'hidden'
-                }`}>
-                <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Time Line Data Available!</h1>
-            </div>
+            {
+                showTimeLineData == 'Call' && (CallData.map((data, ind) =>
+                    <TimeLineItem key={ind} friend={data} />))
+            }
+
+            {
+                showTimeLineData == 'Text' && (TextData.map((data, ind) =>
+                    <TimeLineItem key={ind} friend={data} />))
+            }
+
+            {
+                showTimeLineData == 'Video' && (VideoData.map((data, ind) =>
+                    <TimeLineItem key={ind} friend={data} />))
+            }
+            {
+                <div className={`${TimeLineData.length == 0 ?
+                    'grid' : 'hidden'
+                    }`}>
+                    <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Video Data Available!</h1>
+                </div>
+
+            }
+
 
         </div>
     );
