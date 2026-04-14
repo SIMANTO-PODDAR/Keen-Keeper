@@ -1,4 +1,5 @@
 import { use } from "react";
+import { Link } from "react-router";
 
 const YourFriends = ({ friendsPromise }) => {
     const friends = use(friendsPromise);
@@ -23,7 +24,7 @@ export default YourFriends;
 
 const Friend = ({ friend }) => {
     return (
-        <div className="card bg-base-100  h-64 shadow-sm hover:scale-107 transform transition-transform duration-300 ease-in-out">
+        <Link to={`friend/${friend.id}`} className="card bg-base-100  h-64 shadow-sm hover:scale-107 transform transition-transform duration-300 ease-in-out">
             <figure className="mx-auto py-2">
                 <img
                     src={friend.picture}
@@ -51,7 +52,7 @@ const Friend = ({ friend }) => {
                     >{friend.status}</div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 
 }

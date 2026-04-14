@@ -14,9 +14,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 gap-x-1">
                         <NavLink to='/' className='btn btn-ghost'>
                             <RiHome2Line /> Home </NavLink>
-                        <NavLink to='/abc' className='btn btn-ghost'>
+                        <NavLink to='/timeLine' className='btn btn-ghost'>
                             <IoTimeOutline />  TimeLine </NavLink>
-                        <NavLink to='/xyz' className='btn btn-ghost'>
+                        <NavLink to='/friend/sdkfd' className='btn btn-ghost'>
                             <ImStatsDots />  Stats </NavLink>
 
 

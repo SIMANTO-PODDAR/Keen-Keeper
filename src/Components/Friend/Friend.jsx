@@ -1,35 +1,57 @@
+import { use } from "react";
 import { FaHistory } from "react-icons/fa";
 import { FiArchive, FiPhoneCall } from "react-icons/fi";
 import { LuVideo } from "react-icons/lu";
 import { MdOutlineTextsms } from "react-icons/md";
 import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
+import { useParams } from "react-router";
+import NotFound from "../../UI/NotFound/NotFound";
 
-const Friend = () => {
+const Friend = ({ friendsPromise }) => {
+    const allFriendsData = use(friendsPromise);
+    const { id } = useParams();
+
+    const expectedFriend = allFriendsData.find(friend => friend.id == id);
+
+    if (!expectedFriend) {
+        return (
+            <div>
+                <NotFound />
+            </div>
+        )
+    }
+
     return (
         <div className="mt-5 sm:mt-20 flex-1 sm:flex justify-between">
             <div className="w-80 grid gap-3 mx-auto sm:mx-0"> {/* Left Side */}
                 <div className="card bg-base-100 shadow-sm">
                     <figure className="mx-auto py-2">
                         <img
-                            src="https://i.ibb.co.com/tTtCfB7B/83287d6f80f08f42206eeb2274eb0de5fd2ad5fd.webp"
-                            alt="Shoes"
+                            src={expectedFriend.picture}
+                            alt={expectedFriend.name}
                             className="rounded-full h-20 w-20 object-cover scale-90" />
                     </figure>
                     <div className="card-body items-center text-center p-2">
-                        <h2 className="card-title">{`name`}</h2>
+                        <h2 className="card-title">{expectedFriend.name}</h2>
 
                         <div className="card-actions">
-                            <div className={`btn rounded-full bg-[#efad44] text-white outline-0 mx-2`}
-                            >{`status`}</div>
+                            <div className={`btn rounded-full text-white outline-0 mx-2 
+                    ${expectedFriend.status == 'Overdue' ? 'bg-[#ef4444]' : ''}
+                    ${expectedFriend.status == 'On-track' ? 'bg-[#244d3f]' : ''} 
+                    ${expectedFriend.status == 'Almost Due' ? 'bg-[#efad44]' : ''} 
+                    `}
+                            >{expectedFriend.status}</div>
                         </div>
 
-                        {
-                            <div className="btn rounded-full bg-green-200 text-green-900 outline-0 mx-2"
-                            > {`tag`} </div>
-                        }
+                        <div className="flex justify-center">
+                            {
+                                expectedFriend.tags.map((tag, ind) => <div key={ind} className="btn rounded-full bg-green-200 text-green-900 outline-0 mx-2 py-0 text-[10px] sm:text-xs"
+                                > {tag.toUpperCase()} </div>)
+                            }
+                        </div>
 
-                        <p>{`bio`}</p>
-                        <p>Preferred: {`email`}</p>
+                        <p className="text-black/50">{expectedFriend.bio}</p>
+                        <p className="text-black/50">Preferred: {expectedFriend.email}</p>
                     </div>
                 </div>
 
@@ -56,21 +78,26 @@ const Friend = () => {
 
                     <div className="card bg-base-100 card-md shadow-sm">
                         <div className="card-body">
-                            <h1 className="text-xl sm:text-2xl text-[#244d3f] font-bold">62</h1>
+                            <h1 className="text-xl sm:text-2xl text-[#244d3f] font-bold">{expectedFriend.days_since_contact}</h1>
                             <p className="text-xs sm:text-[18px]">Days Since Contact</p>
                         </div>
                     </div>
 
                     <div className="card bg-base-100 card-md shadow-sm">
                         <div className="card-body">
-                            <h1 className="text-xl sm:text-2xl text-[#244d3f] font-bold">30</h1>
+                            <h1 className="text-xl sm:text-2xl text-[#244d3f] font-bold">{expectedFriend.goal}</h1>
                             <p className="text-xs sm:text-[18px]">Goal (Days)</p>
                         </div>
                     </div>
 
                     <div className="card bg-base-100 card-md shadow-sm">
                         <div className="card-body">
-                            <h1 className="text-[16px] sm:text-2xl text-[#244d3f] font-bold">Feb 27, 2026</h1>
+                            <h1 className="text-[16px] sm:text-2xl text-[#244d3f] font-bold">
+                                {new Date(expectedFriend.next_due_date).toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                })}</h1>
                             <p className="text-xs sm:text-[18px]">Next Due</p>
                         </div>
                     </div>
@@ -88,7 +115,7 @@ const Friend = () => {
                         <p className="text-xs sm:text-[18px]">
                             <span className="text-black/50">Connect every</span>
                             <span className="font-bold">
-                                <span> 30 </span>days
+                                <span> {expectedFriend.goal} </span>days
                             </span>
                         </p>
 
