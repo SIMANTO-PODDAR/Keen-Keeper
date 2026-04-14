@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useContext } from "react";
 import { FaHistory } from "react-icons/fa";
 import { FiArchive, FiPhoneCall } from "react-icons/fi";
 import { LuVideo } from "react-icons/lu";
@@ -6,10 +6,13 @@ import { MdOutlineTextsms } from "react-icons/md";
 import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { useParams } from "react-router";
 import NotFound from "../../UI/NotFound/NotFound";
+import { TLContext } from "../../TimeLineContext/TimeLineContext";
 
 const Friend = ({ friendsPromise }) => {
     const allFriendsData = use(friendsPromise);
     const { id } = useParams();
+
+    const { TimeLineData, setTimeLineData } = useContext(TLContext);
 
     const expectedFriend = allFriendsData.find(friend => friend.id == id);
 
@@ -19,6 +22,32 @@ const Friend = ({ friendsPromise }) => {
                 <NotFound />
             </div>
         )
+    }
+
+    const UpdateTimeDate = (date = new Date()) => {
+        const hours = date.getHours();
+        const minute = date.getMinutes().toString().padStart(2, '0');
+
+        const amORpm = hours >= 12 ? 'pm' : 'am';
+        const hour = hours % 12 || 12;
+
+        const day = date.getDate();
+        const year = date.getFullYear();
+
+        const month = date.toLocaleString('en-US', { month: 'long' });
+
+        return `${hour}:${minute} ${amORpm} ${day} ${month} ${year}`;
+    }
+
+    const handleAction = (sm) => {
+        let friendObj = {
+            "sm": `${sm}`,
+            "name": `${expectedFriend.name}`,
+            "date": `${UpdateTimeDate()}`
+        }
+
+        setTimeLineData([...TimeLineData, friendObj])
+
     }
 
     return (
@@ -76,6 +105,7 @@ const Friend = ({ friendsPromise }) => {
 
             <div className="max-w-3xl mr-0 sm:mr-10 mx-auto mt-5 sm:mt-0"> {/* Right Side */}
 
+                {/* info */}
                 <div className="text-black/50 grid grid-cols-3 gap-6  text-center">
 
                     <div className="card bg-base-100 card-md shadow-sm">
@@ -130,17 +160,20 @@ const Friend = ({ friendsPromise }) => {
                         <h1 className="text-xs sm:text-xl text-[#244d3f] font-bold">Quick Check-In</h1>
 
                         <div className="grid grid-cols-3 gap-4 text-center">
-                            <div className="btn h-24 grid p-0 m-0 gap-0">
+                            <div onClick={() => { handleAction('Call') }}
+                                className="btn h-24 grid p-0 m-0 gap-0">
                                 <span className="text-2xl"><FiPhoneCall /></span>
                                 <p>Call</p>
                             </div>
 
-                            <div className="btn h-24 grid p-0 m-0 gap-0">
+                            <div onClick={() => { handleAction('Text') }}
+                                className="btn h-24 grid p-0 m-0 gap-0">
                                 <span className="text-2xl"><MdOutlineTextsms /></span>
                                 <p>Text</p>
                             </div>
 
-                            <div className="btn h-24 grid p-0 m-0 gap-0">
+                            <div onClick={() => { handleAction('Video') }}
+                                className="btn h-24 grid p-0 m-0 gap-0">
                                 <span className="text-2xl text-center"><LuVideo /></span>
                                 <p>Video</p>
                             </div>

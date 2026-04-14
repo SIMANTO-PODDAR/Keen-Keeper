@@ -3,8 +3,13 @@ import { LuVideo } from "react-icons/lu";
 import { MdOutlineTextsms } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GrDocumentOutlook } from "react-icons/gr";
+import { useContext } from "react";
+import { TLContext } from "../../TimeLineContext/TimeLineContext";
 
 const TimeLine = () => {
+
+    const { TimeLineData } = useContext(TLContext);
+
     return (
         <div className="mt-5 sm:mt-20">
             <h1 className="text-3xl sm:text-5xl font-bold">Timeline</h1>
@@ -22,10 +27,11 @@ const TimeLine = () => {
             </div>
 
             {
-                <TimeLineItem />
+                TimeLineData.map((data, ind) =>
+                    <TimeLineItem key={ind} friend={data} />)
             }
 
-            <div className={`${false ?
+            <div className={`${TimeLineData.length == 0 ?
                 'grid' : 'hidden'
                 }`}>
                 <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Time Line Data Available!</h1>
@@ -37,21 +43,21 @@ const TimeLine = () => {
 
 export default TimeLine;
 
-const TimeLineItem = () => {
+const TimeLineItem = ({ friend }) => {
     return (
         <div className="rounded-xl bg-base-100 shadow-sm my-3 sm:my-6 flex justify-start items-center gap-4 p-2">
 
             <div className="text-2xl">
 
-                <h1 className={`${true ? 'grid' : 'hidden'}`}>
+                <h1 className={`${friend.sm == "Call" ? 'grid' : 'hidden'}`}>
                     <FiPhoneCall />
                 </h1>
 
-                <h1 className={`${false ? 'grid' : 'hidden'}`}>
+                <h1 className={`${friend.sm == "Text" ? 'grid' : 'hidden'}`}>
                     <MdOutlineTextsms />
                 </h1>
 
-                <h1 className={`${false ? 'grid' : 'hidden'}`}>
+                <h1 className={`${friend.sm == "Video" ? 'grid' : 'hidden'}`}>
                     <LuVideo />
                 </h1>
 
@@ -59,11 +65,11 @@ const TimeLineItem = () => {
 
             <div className="text-sm">
                 <h2>
-                    <span className="font-bold">meetup</span> with <span>Tom Baker</span>
+                    <span className="font-bold">{friend.sm}</span> with <span>{friend.name}</span>
                 </h2>
 
 
-                <p>March 29, 2026</p>
+                <p>{friend.date}</p>
             </div>
 
         </div>
