@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { TLContext } from "../../../TimeLineContext/TimeLineContext";
+
 const SummaryCards = () => {
+    const { TimeLineData } = useContext(TLContext);
     return (
         <div className="
                     grid grid-cols-1 text-center gap-3 sm:gap-5 mt-5 text-black/50 justify-between py-5
@@ -28,7 +32,7 @@ const SummaryCards = () => {
 
             <div className="card bg-base-100 card-md shadow-sm">
                 <div className="card-body">
-                    <h1 className="text-2xl sm:text-3xl text-[#244d3f] font-bold">12</h1>
+                    <h1 className="text-2xl sm:text-3xl text-[#244d3f] font-bold">{TimeLineData.length}</h1>
                     <p className="text-[18px]">Interactions This Month</p>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Friend from "../Components/Friend/Friend";
 import { Suspense } from "react";
 import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 import TimeLine from "../Section/TimeLine/TimeLine";
+import Stats from "../Section/Stats/Stats";
 
 
 const friendsPromise = fetch('/data.json').then(res => res.json());
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
             {
                 path: 'timeLine',
                 Component: TimeLine
+            },
+            {
+                path: 'stats',
+                Component: Stats
             }
         ]
     },

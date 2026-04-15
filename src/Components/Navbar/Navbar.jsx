@@ -16,7 +16,7 @@ const Navbar = () => {
                             <RiHome2Line /> Home </NavLink>
                         <NavLink to='/timeLine' className='btn btn-ghost'>
                             <IoTimeOutline />  TimeLine </NavLink>
-                        <NavLink to='/friend/sdkfd' className='btn btn-ghost'>
+                        <NavLink to='/stats' className='btn btn-ghost'>
                             <ImStatsDots />  Stats </NavLink>
 
 
