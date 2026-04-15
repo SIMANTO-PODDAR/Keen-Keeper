@@ -30,14 +30,14 @@ const TimeLine = () => {
                 </div>
 
                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-50 sm:w-87 p-2 shadow-sm">
-                    <li onClick={() => handleShowData('Call')}>
-                        <a><FiPhoneCall /> Call </a></li>
-                    <li onClick={() => handleShowData('Text')}>
-                        <a><MdOutlineTextsms /> Text </a></li>
-                    <li onClick={() => handleShowData('Video')}>
-                        <a><LuVideo /> Video </a></li>
                     <li onClick={() => handleShowData('All')}>
-                        <a><MdClearAll /> All </a></li>
+                        <a><MdClearAll /> All ({TimeLineData.length})</a></li>
+                    <li onClick={() => handleShowData('Call')}>
+                        <a><FiPhoneCall /> Call ({CallData.length})</a></li>
+                    <li onClick={() => handleShowData('Text')}>
+                        <a><MdOutlineTextsms /> Text ({TextData.length})</a></li>
+                    <li onClick={() => handleShowData('Video')}>
+                        <a><LuVideo /> Video ({VideoData.length})</a></li>
                 </ul>
             </div>
 
@@ -60,11 +60,12 @@ const TimeLine = () => {
                 showTimeLineData == 'Video' && (VideoData.map((data, ind) =>
                     <TimeLineItem key={ind} friend={data} />))
             }
+
             {
                 <div className={`${TimeLineData.length == 0 ?
                     'grid' : 'hidden'
                     }`}>
-                    <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Video Data Available!</h1>
+                    <h1 className="text-3xl font-bold text-center py-15 sm:py-3"> <GrDocumentOutlook className="text-center mx-auto m-3" />No Time Line Data Available!</h1>
                 </div>
 
             }

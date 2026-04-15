@@ -43,12 +43,15 @@ const Friend = ({ friendsPromise }) => {
         let friendObj = {
             "sm": `${sm}`,
             "name": `${expectedFriend.name}`,
-            "date": `${UpdateTimeDate()}`
+            "date": `${UpdateTimeDate()}`,
+            "id": `${expectedFriend.id}`
         }
 
         setTimeLineData([friendObj, ...TimeLineData])
 
     }
+
+    const RecentInteractionData = TimeLineData.filter(itm => itm.id == expectedFriend.id);
 
     return (
         <div className="mt-5 sm:mt-20 flex-1 sm:flex justify-between">
@@ -192,9 +195,10 @@ const Friend = ({ friendsPromise }) => {
                         </div>
 
                         <div>
-                            <div>
 
-                            </div>
+                            {
+                                RecentInteractionData.map((itm, ind) => <RecentInteractionItem key={ind} friend={itm} />)
+                            }
 
                         </div>
 
@@ -207,3 +211,36 @@ const Friend = ({ friendsPromise }) => {
 };
 
 export default Friend;
+
+
+const RecentInteractionItem = ({ friend }) => {
+    return (
+        <div className="rounded-xl bg-base-100 shadow-sm my-3 sm:my-6 flex justify-start items-center gap-4 p-2">
+
+            <div className="text-2xl">
+
+                <h1 className={`${friend.sm == "Call" ? 'grid' : 'hidden'}`}>
+                    <FiPhoneCall />
+                </h1>
+
+                <h1 className={`${friend.sm == "Text" ? 'grid' : 'hidden'}`}>
+                    <MdOutlineTextsms />
+                </h1>
+
+                <h1 className={`${friend.sm == "Video" ? 'grid' : 'hidden'}`}>
+                    <LuVideo />
+                </h1>
+
+            </div>
+
+            <div className="text-sm">
+                <h2>
+                    <span className="font-bold">{friend.sm}</span> with <span>{friend.name}</span>
+                </h2>
+
+                <p>{friend.date}</p>
+            </div>
+
+        </div>
+    )
+}
