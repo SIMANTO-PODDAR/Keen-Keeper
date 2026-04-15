@@ -7,6 +7,7 @@ import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { useParams } from "react-router";
 import NotFound from "../../UI/NotFound/NotFound";
 import { TLContext } from "../../TimeLineContext/TimeLineContext";
+import { toast } from "react-toastify";
 
 const Friend = ({ friendsPromise }) => {
     const allFriendsData = use(friendsPromise);
@@ -49,6 +50,7 @@ const Friend = ({ friendsPromise }) => {
 
         setTimeLineData([friendObj, ...TimeLineData])
 
+        toast(`${sm} with ${expectedFriend.name}`)
     }
 
     const RecentInteractionData = TimeLineData.filter(itm => itm.id == expectedFriend.id);
@@ -133,7 +135,7 @@ const Friend = ({ friendsPromise }) => {
                                     day: "numeric",
                                     year: "numeric",
                                 })}</h1>
-                            <p className="text-xs sm:text-[18px]">Next Due</p>
+                            <p className="text-xs sm:text-[18px]">Next Due Date</p>
                         </div>
                     </div>
 
