@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6';
 const Footer = () => {
     return (
-        <div className="bg-[#244d3f] text-[#f0ffff] sm:mt-20">
-            <div className='max-w-300 mx-auto'>
+        <div className="bg-[#1e3f34] text-[#f0ffff] mt-20">
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 
                 <footer className="footer footer-horizontal footer-center p-10 border-b border-white/15">
                     <img className='mt-10 scale-70 md:scale-100 sm:mt-20' src={FooterLogo}

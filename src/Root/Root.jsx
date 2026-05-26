@@ -5,19 +5,29 @@ import Footer from "../Section/Footer/Footer";
 
 const Root = () => {
     return (
-        <>
+        <div className="min-h-screen flex flex-col justify-between">
             <div>
                 <Navbar />
 
-                <div className="max-w-300 mx-auto">
+                <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
                     <Outlet />
-                </div>
-
-                <Footer />
-
+                </main>
             </div>
-            <ToastContainer />
-        </>
+
+            <Footer />
+            <ToastContainer 
+                position="bottom-right" 
+                autoClose={3000} 
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+        </div>
     );
 };
 

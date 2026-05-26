@@ -1,22 +1,28 @@
-import { Suspense } from "react";
+import { useState } from "react";
 import Banner from "../../Components/Banner/Banner";
 import YourFriends from "../../Components/YourFriends/YourFriends";
 import LoadingSpinner from "../../UI/LoadingSpinner/LoadingSpinner";
-
-const friendsPromise = fetch('/data.json').then(res => res.json());
+import AddFriendModal from "../../Components/AddFriendModal/AddFriendModal";
+import { useApp } from "../../Context/AppContext";
 
 const Home = () => {
+    const { loading } = useApp();
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
     return (
-        <div>
-            <Banner />
+        <div className="space-y-6">
+            <Banner onAddFriendClick={() => setIsAddModalOpen(true)} />
 
-            <Suspense fallback={<LoadingSpinner />} >
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
+                <YourFriends />
+            )}
 
-                <YourFriends friendsPromise={friendsPromise} />
-
-            </Suspense>
-
-
+            <AddFriendModal 
+                isOpen={isAddModalOpen} 
+                onClose={() => setIsAddModalOpen(false)} 
+            />
         </div>
     );
 };
