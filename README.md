@@ -1,149 +1,263 @@
-# Project Name - KeenKeeper
+<div align="center">
 
-🔗 **Live Demo:** [https://keen-keeper.vercel.app/](https://keen-keeper.vercel.app/)
+# KeenKeeper
+
+### *Stay connected. Never lose touch.*
+
+A modern **friendship management app** that helps you track, nurture, and maintain your most important relationships — with smart goals, interaction logging, and visual analytics.
+
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-keen--keeper.vercel.app-10b981?style=for-the-badge)](https://keen-keeper.vercel.app/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind-4-38BDF8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+
+</div>
 
 ---
 
-### Description
+## 📌 Project Overview
 
-A modern and responsive friendship management app designed to help you stay connected with the people who matter most. Track your interactions through an intuitive timeline, manage contact frequency with smart goals, and log calls, texts, or video chats in just one click. With built-in analytics and visual insights, the app gives you a clear overview of your communication habits and relationships.
+**KeenKeeper** is a relationship-tracking web application designed to solve a common problem — forgetting to stay in touch with the people who matter most. Instead of relying on memory, KeenKeeper lets you:
+
+- Set a **contact frequency goal** (e.g., "I want to call Alex every 14 days")
+- **Log every interaction** — Call, Text, or Video — with a single click
+- **See at a glance** who's overdue for contact, who's on track, and who needs attention
+- Analyze your communication habits through **visual charts**
+
+Everything is stored locally in the browser via `localStorage`, so your data persists across sessions without any backend or login required.
 
 ---
 
-## 🛠️ Technologies Used
+## ✨ Key Features
 
-| Technology | Purpose |
+### 📇 1. Smart Friend Management Dashboard
+
+A responsive card grid displaying all your friends with real-time status indicators:
+
+| Field | Description |
 |---|---|
-| **React.js** | Build the UI |
-| **React Router DOM** | Handle page navigation |
-| **Tailwind CSS + DaisyUI** | Styling and responsiveness |
-| **Recharts** | Chart |
-| **React Toastify + React Icons** | Notification & Styling |
+| 📸 Profile Photo | Visual identity of each friend |
+| 🧑 Name | Full name shown prominently |
+| 📅 Days Since Contact | Dynamically computed from last contact date |
+| 🏷️ Tags | Labels like `college`, `work`, `family` |
+| 🔴🟡🟢 Status Ring | Pulsing color indicator: **Overdue / Almost Due / On Track** |
+
+Click any card to navigate to that friend's **Detail Page**.
 
 ---
 
-## ✨ 3 key features
+### 👤 2. Friend Detail Page (Two-Column Layout)
 
-| **1. 📇 Smart Friend Management Dashboard** |
- Easily manage all your friends in a clean, responsive grid layout with real-time status indicators, tags, and last contact tracking — helping you never lose touch. |
+**Left Column — Friend Info Card:**
 
-| **2. ⚡ One-Click Interaction Logging (Call / Text / Video)** |
- Quickly log interactions with a single click from the Friend Details page. Each action instantly updates the timeline and shows a toast notification for seamless tracking. |
+- Profile picture, name, status badge, tags, bio, and email
+- Action buttons: ⏰ **Snooze 2 Weeks** · 📦 **Archive** · 🗑️ **Delete**
 
-| **3. 📊 Visual Friendship Analytics** |
- Gain insights into your communication habits with an interactive pie chart that breaks down Call, Text, and Video interactions. |
+**Right Column — Three Smart Sections:**
 
----
-
-# Detailed Description 📄
-
-### 👥 Your Friends Section (Home Page)
-
-- Display all friends from JSON file as cards,
-- **Each card show:**
-
-| Field | Details |
+| Section | Content |
 |---|---|
-| 📸 Picture | Friend's photo |
-| 🧑 Name | Friend's full name |
-| 📅 Days Since Contact | How many days ago you contacted them |
-| 🏷️ Tags | e.g., "college", "work" |
-| 🔴 Status | Background color changes based on status|
-
-- Cards shown in a **4-column grid layout on large screens**
-- Clicking a card navigate the user to that friend's **Detail Page**
+| 📊 Stats Cards | Days Since Contact · Contact Goal · Next Due Date |
+| 🎯 Relationship Goal | Current goal in days + inline Edit button |
+| ⚡ Quick Check-In | One-click **Call**, **Text**, **Video** buttons |
 
 ---
 
-### 👤 Friend Details Page —
+### ⚡ 3. One-Click Interaction Logging
 
-This page have a **two-column layout**.
+Clicking **Call / Text / Video** on the Friend Detail page instantly:
 
-|*Left Column — Friend Info Card:*|
-|---|
-
-Show the following details:
-
-- Profile picture - Name - Status (with color) - Tags - Bio - Email
-
-| Button |
-|---|
-|🔘-⏰ Snooze 2 Weeks   🔘-📦 Archive   🔘-🗑️ Delete |
-
-|*Right Column — 3 sections:*|
-|---|
-
-**① Stats Cards (show 3 cards):**
-
-- Days Since Contact - Goal (in days) - Next Due Date
-
-**② Relationship Goal Card:**
-
-- Show the current contact goal
-- An **Edit** button
-
-**③ Quick Check-In Card:**
-
-- 3 buttons with icons: **Call**, **Text**, **Video**
-- When clicked, each button adds a new entry to the **Timeline**
+- ✅ Adds a new entry to the **Timeline** (with current timestamp)
+- ✅ Updates the friend's `last_contact_date` and recalculates `next_due_date`
+- ✅ Fires a **toast notification** confirming the logged interaction
 
 ---
 
-### ⚡ Friend Details Page — Button Functionality
+### 📜 4. Timeline Page
 
-When a user clicks **Call**, **Text**, or **Video** in the Quick Check-In Card:
+A chronological history of all logged interactions across all friends.
 
-✅ A **new timeline entry** is automatically added with:
-
-- The **current date**
-- A **title** like:
-  - "Call with Alex Johnson"
-
-✅ A **toast notification** appear when any of these buttons is clicked.
+- Entries show: **Date & Time · Interaction Icon · Title** (e.g., "Call with Sarah")
+- **Filter bar** to view only `Call`, `Text`, or `Video` entries
+- Clear timeline option available
 
 ---
 
-### 📜 Timeline Page
+### 📊 5. Friendship Analytics (Stats Page)
 
-This page shows the **history of all interactions** (calls, texts, video calls) logged from the Friend Details page.
+- Interactive **Pie Chart** (powered by Recharts) breaking down your interactions by type
+- Instantly see if you call, text, or video chat more
 
-**This page have:**
+---
 
-- A **"Timeline"** heading at the top
-- Timeline entries
-- Each entry show:
+### ➕ 6. Add New Friends
 
-| Field | Details |
+A modal form lets you add new friends with:
+
+- Name, Email, Profile Picture URL, Bio, Tags, Contact Goal (days)
+- New friends are instantly saved to `localStorage` and appear on the dashboard
+
+---
+
+### 📱 7. Fully Responsive
+
+The entire app is designed and tested across:
+
+- 📱 Mobile (single column layout)
+- 💻 Tablet (2-column grid)
+- 🖥️ Desktop (4-column grid, two-panel detail view)
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| **React.js** | 19 | Component-based UI framework |
+| **Vite** | 8 | Lightning-fast dev server & bundler |
+| **React Router** | 7 | Client-side page navigation |
+| **Tailwind CSS** | 4 | Utility-first styling |
+| **DaisyUI** | 5 | Tailwind component library |
+| **Recharts** | 3 | Interactive data visualization (Pie Chart) |
+| **React Toastify** | 11 | Toast notifications |
+| **React Icons** | 5 | Icon library |
+| **localStorage** | — | Client-side data persistence |
+
+---
+
+## 🗂️ Project Architecture
+
+```
+keen-keeper/
+├── public/
+│   └── data.json              # Seed data for initial friends list
+├── src/
+│   ├── assets/                # Static assets (images, etc.)
+│   ├── Context/
+│   │   ├── AppContext.jsx     # Global state provider (friends, timeline, actions)
+│   │   └── AppContextCore.js  # Context object definition
+│   ├── Router/
+│   │   └── Router.jsx         # React Router configuration
+│   ├── Root/
+│   │   └── Root.jsx           # App shell (Navbar + Outlet + Footer)
+│   ├── Components/
+│   │   ├── Navbar/            # Top navigation bar
+│   │   ├── Banner/            # Hero/banner section
+│   │   ├── YourFriends/       # Friends grid display
+│   │   ├── Friend/            # Friend detail page
+│   │   └── AddFriendModal/    # Modal for adding new friends
+│   ├── Section/
+│   │   ├── Home/              # Home page
+│   │   ├── TimeLine/          # Interaction history page
+│   │   ├── Stats/             # Analytics page
+│   │   └── Footer/            # Footer section
+│   ├── UI/
+│   │   ├── LoadingSpinner/    # Loading animation
+│   │   └── NotFound/          # 404 error page
+│   ├── index.css              # Global styles, glassmorphism, animations
+│   └── main.jsx               # App entry point
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🔄 State Management
+
+All app state is managed via a custom **React Context** (`AppContext`) with `localStorage` persistence. The context exposes:
+
+| Action | Description |
 |---|---|
-| 📅 Date | When the interaction happened |
-| 🔣 Icon | Different icon for Call / Text / Video |
-| 📝 Title | e.g., "Call with Sarah" |
-
-### 🔍 Timeline Filter
-
-- **filter options** on the Timeline page so users can filter entries by: **Call**, **Text**, or **Video**
-
----
-
-### 📊 Friendship Analytics Page (Stats Page)
-
-- The page have a **"Friendship Analytics"** heading at the top
-- A **Pie Chart** (using Recharts) showing the count of **Call / Text / Video** interactions
+| `addFriend(data)` | Add a new friend with auto-computed dates |
+| `deleteFriend(id)` | Remove friend and their timeline entries |
+| `archiveFriend(id)` | Toggle archive status |
+| `snoozeFriend(id)` | Push next due date by 14 days |
+| `editGoal(id, days)` | Update contact frequency goal |
+| `logInteraction(id, type)` | Log Call/Text/Video + update contact dates |
+| `deleteTimelineItem(id)` | Remove a single timeline entry |
+| `clearTimeline()` | Wipe all timeline entries |
 
 ---
 
-### 📱 Responsive Design
+## 🧭 Routing Structure
 
-- The entire website work correctly on **mobile, tablet, and desktop** screen sizes
+| Route | Component | Description |
+|---|---|---|
+| `/` | `Home` | Friends dashboard (default) |
+| `/friend/:id` | `Friend` | Individual friend detail view |
+| `/timeLine` | `TimeLine` | Interaction history |
+| `/stats` | `Stats` | Friendship analytics chart |
+| `*` | `NotFound` | 404 error page |
 
 ---
 
-### 🛠️ Other Functionality
+## 🎨 Design System
 
-|  | |
+- **Primary Color:** `#10b981` (Emerald Green)
+- **Background:** `#f8fafc` with subtle radial gradients
+- **Typography:** `Outfit` + `Geist` from Google Fonts
+- **Glassmorphism panels:** `backdrop-filter: blur(16px)` with translucent backgrounds
+- **Status animations:** Pulsing ring animations in 🟢 green / 🟡 yellow / 🔴 red
+- **Card interactions:** Smooth `translateY` lift on hover via cubic-bezier easing
+- **Custom scrollbar:** Styled with brand green tones
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js `>= 18`
+- npm `>= 9`
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/SIMANTO-PODDAR/Keen-Keeper.git
+cd Keen-Keeper
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 🌐 Deployment
+
+This project is deployed on **Vercel** with automatic CI/CD from the `main` branch.
+
+🔗 **Live URL:** [https://keen-keeper.vercel.app/](https://keen-keeper.vercel.app/)
+
+---
+
+## 🧩 Other Features
+
+| # | Feature |
 |---|---|
-| 1 |  **404 Page** for any unknown/invalid route |
-| 2 | Show a **loading animation** while the friends data is being fetched on the Home page |
-| 3 | Show a **relevant toast notification** when the user clicks Call, Text, or Video |
+| 1 | **404 Page** for any unknown/invalid route |
+| 2 | **Loading spinner** shown while fetching initial friend data |
+| 3 | **Toast notifications** for every interaction log action |
+| 4 | **Lazy state initialization** — reads from `localStorage` before fetching |
+| 5 | **Data seeding** — auto-fetches `data.json` on first visit to populate friends |
 
 ---
+
+<div align="center">
+
+Made with 💚 using React + Vite
+
+</div>

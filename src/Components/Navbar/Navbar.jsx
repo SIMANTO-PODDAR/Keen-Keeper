@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="navbar max-w-7xl mx-auto glass-panel rounded-full px-6 py-2 flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center shadow-md">
                 <div className="flex-1 flex justify-start items-center">
                     <NavLink to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                        <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-emerald-600 to-indigo-600 bg-clip-text text-transparent">
+                        <span className="font-extrabold text-xl tracking-tight bg-linear-to-r from-emerald-600 to-indigo-600 bg-clip-text text-transparent">
                             KeenKeeper
                         </span>
                     </NavLink>
