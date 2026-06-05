@@ -6,7 +6,7 @@
 
 A modern **friendship management app** that helps you track, nurture, and maintain your most important relationships — with smart goals, interaction logging, and visual analytics.
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-keen--keeper.vercel.app-10b981?style=for-the-badge)](https://keen-keeper.vercel.app/)
+
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-4-38BDF8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
@@ -14,6 +14,18 @@ A modern **friendship management app** that helps you track, nurture, and mainta
 </div>
 
 ---
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-keen--keeper.vercel.app-10b981?style=for-the-badge)](https://keen-keeper.vercel.app/)
+
+<div align="center">
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td valign="top" width="60%">
+        <img src="https://i.ibb.co.com/Pvn9fxkh/Keen-Keeper-Desktop.jpg" alt="KeenKeeper Desktop View" width="100%" style="border-radius: 8px;" />
+      </td>
+    </tr>
+  </table>
+</div>
+<br />
 
 ## 📌 Project Overview
 
