@@ -22,6 +22,9 @@ A modern **friendship management app** that helps you track, nurture, and mainta
       <td valign="top" width="60%">
         <img src="https://i.ibb.co.com/Pvn9fxkh/Keen-Keeper-Desktop.jpg" alt="KeenKeeper Desktop View" width="100%" style="border-radius: 8px;" />
       </td>
+      <td valign="top" width="35%">
+        <img src="https://i.ibb.co.com/F4h0MprP/Keen-Keeper-Mobile.jpg" alt="KeenKeeper Mobile View" width="100%" style="border-radius: 8px;" />
+      </td>
     </tr>
   </table>
 </div>
